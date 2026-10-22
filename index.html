@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>地藏十輪經漫畫書</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#E6EAE6;--fg:#2B332F;--dim:#5E6A64;--gold:#D9B66C;--line:#C5CCC6;--red:#B13F2B;
+ --serif:'Noto Serif TC','Songti TC','Source Han Serif TC','PMingLiU',serif;--sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181A;--fg:#E4E8E4;--dim:#93A09A;--line:#2C3438;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14181A;--fg:#E4E8E4;--dim:#93A09A;--line:#2C3438;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);padding-inline:16px;padding-block:28px 40px}
+main{max-width:980px;margin-inline:auto}
+h1{font:700 clamp(26px,5vw,38px)/1.2 var(--serif);margin:0 0 6px;letter-spacing:.06em}
+.sub{color:var(--dim);margin:0 0 22px;font-size:15px}
+.find{display:flex;gap:8px;align-items:center;margin-bottom:26px;flex-wrap:wrap}
+.find input{font:400 16px var(--sans);width:7em;padding:10px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--fg)}
+.find button{font:500 15px var(--sans);padding:10px 16px;min-height:44px;border:0;border-radius:6px;background:var(--fg);color:var(--bg);cursor:pointer}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px}
+.book{container-type:inline-size;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;aspect-ratio:1/1;
+  background:#1C1D19 center/cover no-repeat;color:#F6EEDB;text-decoration:none;padding:9% 7% 8%;border-radius:4px;overflow:hidden;isolation:isolate;
+  box-shadow:0 6px 18px rgba(0,0,0,.22);transition:transform .15s ease,box-shadow .15s ease}
+.book::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,12,10,.5),rgba(12,12,10,.1) 42%,rgba(12,12,10,.58))}
+.book::after{content:'';position:absolute;inset:3.6%;border:1px solid rgba(217,182,108,.85);outline:1px solid rgba(217,182,108,.35);outline-offset:3px;pointer-events:none}
+.book:hover,.book:focus-visible{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.32);outline:3px solid var(--gold);outline-offset:2px}
+.book small{font-size:max(10px,4.8cqw);letter-spacing:.42em;text-indent:.42em;color:#E8CF94}
+.book svg{width:46%;height:auto;color:#E6C781;opacity:.95}
+.book b{font:700 max(17px,11cqw)/1.2 var(--serif);letter-spacing:.12em;text-indent:.12em;color:#FBF3E0;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.book span{font-size:max(11px,5.4cqw);letter-spacing:.16em;text-indent:.16em;color:#E8CF94}
+.book i{position:absolute;right:8%;top:7.5%;width:12.5%;aspect-ratio:3/4.4;background:var(--red);color:#FFF8EA;border-radius:2px;transform:rotate(3deg);display:flex;flex-direction:column;align-items:center;justify-content:center;font:700 max(12px,7cqw)/1.05 var(--serif);font-style:normal;box-shadow:inset 0 0 0 1px rgba(255,248,234,.55)}
+footer{margin-top:34px;color:var(--dim);font-size:13px;line-height:1.7}
+footer a{color:var(--dim)}
+</style>
+</head>
+<body>
+<main>
+  <h1>地藏十輪經 漫畫書</h1>
+  <p class="sub">用漫畫一頁一頁翻,讀懂《大乘大集地藏十輪經》。共 100 篇、8 冊。</p>
+  <form class="find" id="find"><label for="n">直接找第幾篇</label><input id="n" type="number" min="1" max="100" inputmode="numeric" placeholder="1–100"><button type="submit">前往</button></form>
+  <div class="shelf" id="shelf"></div>
+  <footer>粉絲專頁:<a href="https://www.facebook.com/Ksitigarbhabodishava" target="_blank" rel="noopener">地藏菩薩經典導讀</a> · 私訊「我要索取地藏經」可免費索取紙本經書</footer>
+</main>
+<script>
+var SHELF=[{"no": 1, "cn": "一", "name": "序品第一", "cover": "img/001/wd.webp", "from": 1, "to": 20}, {"no": 2, "cn": "二", "name": "十輪品", "cover": "img/021/wd.webp", "from": 21, "to": 40}, {"no": 3, "cn": "三", "name": "無依行品", "cover": "img/041/wd.webp", "from": 41, "to": 55}, {"no": 4, "cn": "四", "name": "有依行品", "cover": "img/056/wd.webp", "from": 56, "to": 70}, {"no": 5, "cn": "五", "name": "懺悔品", "cover": "img/071/wd.webp", "from": 71, "to": 78}, {"no": 6, "cn": "六", "name": "善業道品", "cover": "img/079/wd.webp", "from": 79, "to": 88}, {"no": 7, "cn": "七", "name": "福田相品", "cover": "img/089/wd.webp", "from": 89, "to": 95}, {"no": 8, "cn": "八", "name": "獲益囑累品", "cover": "img/096/wd.webp", "from": 96, "to": 100}], sh=document.getElementById('shelf');
+function wheel(){var s='<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor"><circle cx="50" cy="50" r="41" stroke-width="1.8"/><circle cx="50" cy="50" r="35.5" stroke-width=".6"/><circle cx="50" cy="50" r="9.5" stroke-width="1.6"/>',k,a;
+  for(k=0;k<10;k++){a=k*Math.PI/5-Math.PI/2;s+='<line x1="'+(50+Math.cos(a)*9.5).toFixed(1)+'" y1="'+(50+Math.sin(a)*9.5).toFixed(1)+'" x2="'+(50+Math.cos(a)*35.5).toFixed(1)+'" y2="'+(50+Math.sin(a)*35.5).toFixed(1)+'" stroke-width="1.4"/>'}
+  s+='</g><g fill="currentColor"><circle cx="50" cy="50" r="2.6"/>';
+  for(k=0;k<10;k++){a=k*Math.PI/5-Math.PI/2;s+='<circle cx="'+(50+Math.cos(a)*43.6).toFixed(1)+'" cy="'+(50+Math.sin(a)*43.6).toFixed(1)+'" r="3"/>'}
+  return s+'</g></svg>'}
+SHELF.forEach(function(b){var a=document.createElement('a');a.className='book';a.href='book'+b.no+'.html';
+  if(b.cover)a.style.backgroundImage='url("'+b.cover+'")';
+  a.setAttribute('aria-label','第'+b.cn+'冊 '+b.name+',第 '+b.from+' 到 '+b.to+' 篇');
+  a.innerHTML='<small>地藏十輪經</small>'+wheel()+'<b></b><span></span><i><em style="font-style:normal;font-size:.62em">第</em><em style="font-style:normal"></em><em style="font-style:normal;font-size:.62em">冊</em></i>';
+  a.querySelector('b').textContent=b.name;a.querySelector('span').textContent='第 '+b.from+'–'+b.to+' 篇';
+  a.querySelectorAll('i em')[1].textContent=b.cn;sh.appendChild(a)});
+document.getElementById('find').onsubmit=function(e){e.preventDefault();var n=parseInt(document.getElementById('n').value,10);if(!n)return;
+  for(var i=0;i<SHELF.length;i++){if(n>=SHELF[i].from&&n<=SHELF[i].to){location.href='book'+SHELF[i].no+'.html#'+n;return}}};
+</script>
+<script src="assets/music-tracks.js"></script>
+<script src="assets/music.js"></script>
+</body>
+</html>
